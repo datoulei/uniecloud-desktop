@@ -1,0 +1,250 @@
+@import "./var.scss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+.v-main {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  .content-wrap {
+    padding: 20px;
+    min-height: 164px;
+    background-color: $--color-white;
+    @include box-shadow;
+  }
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-36 {
+  font-size: 36px;
+}
+
+.f-w-500 {
+  font-weight: 500;
+}
+.f-w-600 {
+  font-weight: 600;
+}
+
+.fc-666 {
+  color: $--color-font-666;
+}
+
+.flex-box {
+  display: flex;
+}
+.f-1 {
+  flex: 1;
+}
+.a-c {
+  align-items: center;
+}
+.j-c {
+  justify-content: center;
+}
+.j-s-a {
+  justify-content: space-around;
+}
+.j-s-b {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.link-btn {
+  cursor: pointer;
+  color: $--color-link-btn;
+}
+.mini-input {
+  width: 128px !important;
+}
+.short-input {
+  width: 200px !important;
+}
+.middle-input {
+  width: 300px !important;
+}
+.long-input {
+  width: 400px !important;
+}
+.short-button {
+  width: 100px;
+}
+
+.common-pagination {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.m-t-8 {
+  margin-top: 8px;
+}
+.m-b-8 {
+  margin-bottom: 8px;
+}
+.m-t-10 {
+  margin-top: 10px;
+}
+.m-l-10 {
+  margin-left: 10px;
+}
+.m-r-10 {
+  margin-right: 10px;
+}
+.m-t-16 {
+  margin-top: 16px;
+}
+.m-r-16 {
+  margin-right: 16px;
+}
+.m-b-16 {
+  margin-bottom: 16px;
+}
+.m-t-20 {
+  margin-top: 20px;
+}
+.m-l-20 {
+  margin-left: 20px;
+}
+.m-r-20 {
+  margin-right: 20px;
+}
+.m-b-20 {
+  margin-bottom: 20px;
+}
+.m-t-24 {
+  margin-top: 24px;
+}
+.m-l-24 {
+  margin-left: 24px;
+}
+.m-r-24 {
+  margin-right: 24px;
+}
+.m-b-24 {
+  margin-bottom: 24px;
+}
+.m-t-30 {
+  margin-top: 30px;
+}
+.m-b-30 {
+  margin-bottom: 30px;
+}
+.m-b-32 {
+  margin-bottom: 32px;
+}
+.m-t-40 {
+  margin-top: 40px;
+}
+.m-l-40 {
+  margin-left: 40px;
+}
+.m-t-60 {
+  margin-top: 60px;
+}
+.m-l-120 {
+  margin-left: 120px;
+}
+
+.p-r-10 {
+  padding-right: 10px;
+}
+.p-t-20 {
+  padding-top: 20px;
+}
+.p-t-50 {
+  padding-top: 50px;
+}
+.p-l-80 {
+  padding-left: 80px;
+}
+
+.no-m-b-last {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.common-card {
+  padding: 32px;
+  background-color: $--color-white;
+  position: relative;
+  &.fix-width {
+    width: $--length-long-card;
+  }
+  &.box-shadow {
+    @include box-shadow;
+  }
+  &.border-bottom {
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .middle-line {
+    position: absolute;
+    height: 56px;
+    width: 1px;
+    left: 50%;
+    top: 46px;
+    background-color: $--color-line;
+  }
+}
+
+.activity {
+  height: 164px;
+  .time-line {
+    width: 24px;
+    height: 2px;
+    background-color: $--color-line;
+    margin: 0 40px;
+  }
+  .middle-line {
+    height: 32px;
+    top: 88px;
+  }
+  .manage-btn {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+  }
+  .processing {
+    color: $--color-red;
+  }
+}
+
+.clear-both {
+  clear: both;
+}
+
+.dashed-line {
+  border-bottom: 1px dashed #E5E5E5;
+  margin-bottom: 30px;
+}
+
+.solid-line {
+  border-bottom: 1px solid #E5E5E5;
+}
