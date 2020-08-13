@@ -60,7 +60,6 @@
 
 <script>
 import moment from 'moment'
-import pinyin from 'pinyin'
 import db from '../../db'
 import offlinedb from '../../offlinedb'
 import { mapGetters } from 'vuex'
@@ -345,25 +344,6 @@ export default {
         this.total = attendees.count
       }
       this.attendeeList = []
-      // if (this.keyword) {
-      //   result.map((item) => {
-      //     // 名字转拼音
-      //     const letter = pinyin(item.name, {
-      //       style: pinyin.STYLE_NORMAL
-      //     }).join('');
-      //     if (
-      //       item.mobile.includes(this.keyword) ||
-      //       item.name.includes(this.keyword) ||
-      //       letter.includes(this.keyword)
-      //     ) {
-      //       this.attendeeList.push(item);
-      //     }
-      //   });
-
-      //   this.total = this.attendeeList.length;
-      // } else {
-      //   this.attendeeList = result;
-      // }
       this.attendeeList = result
       this.loading = false
     },
