@@ -50,13 +50,7 @@
                 >内容设计</a-button
               > -->
               <!-- 只有进行中才可以签到，状态为2 -->
-              <a-button
-                v-if="data.status === 2 || data.status === 1"
-                :class="[data.status === 1 ? 'sign-1' : 'sign-2']"
-                type="primary"
-                @click="handleGetSites(data)"
-                >开始签到</a-button
-              >
+              <a-button :class="[data.status === 1 ? 'sign-1' : 'sign-2']" type="primary" @click="handleGetSites(data)">开始签到</a-button>
               <!-- <a-button v-if="data.status === 1" class="sign-1" type="primary"
                 >开始签到</a-button
               > -->
