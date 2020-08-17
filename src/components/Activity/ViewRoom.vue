@@ -2,6 +2,10 @@
   <div class="wrap">
     <div class="wrap-top">
       <div class="room-type">
+        <span class="label">酒店：</span>
+        <span>{{ hotel.name }}</span>
+      </div>
+      <div class="room-type">
         <span class="label">房型:</span>
         <a-radio-group v-model="checkType" buttonStyle="solid" @change="getRoomList">
           <a-radio-button :value="t.id" v-for="t in type" :key="t.id">{{ t.name }}</a-radio-button>
@@ -60,6 +64,7 @@ export default {
       checkDate: '',
       room: [],
       countInfo: [],
+      hotel: {},
     }
   },
   created() {
@@ -75,6 +80,7 @@ export default {
         }, 500)
       }
     })
+    this.loadHotel()
   },
   computed: {
     dateList() {
@@ -94,6 +100,12 @@ export default {
     },
   },
   methods: {
+    async loadHotel() {
+      try {
+        const data = await this.$http.get(`/activities/${this.activityId}/hotels/${this.hotelId}`)
+        this.hotel = data
+      } catch (error) {}
+    },
     // 获取酒店统计信息
     async getCountInfo() {
       try {
