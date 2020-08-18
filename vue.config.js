@@ -5,8 +5,8 @@ module.exports = {
     electronBuilder: {
       nodeIntegration: true,
       builderOptions: {
-        appId: 'com.uniecloud.ppt-admin',
-        productName: 'ppt-admin',
+        appId: 'com.uniecloud.desktop',
+        productName: 'uniecloud-desktop',
         copyright: 'Copyright©unicloud',
         directories: {
           output: './dist_electron' // 输出文件路径
