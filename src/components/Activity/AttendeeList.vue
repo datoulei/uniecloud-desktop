@@ -111,7 +111,7 @@ export default {
       }
     },
     enableEdit() {
-      return this.UserInfo.enableAttendeeManage
+      return this.UserInfo.type == 1 || this.UserInfo.enableAttendeeManage
     },
     // 活动ID
     activityId() {
