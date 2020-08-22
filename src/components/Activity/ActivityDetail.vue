@@ -88,7 +88,7 @@
       </a-card>
       <!-- 检索签到弹框 -->
       <SignModal :visible="searchSignModal" :title="searchModalTittle" width="80%" @cancel="handleClose" :maskClosable="false" :destroyOnClose="true">
-        <a-table :columns="columns" :dataSource="attendeeListData" :scroll="{ x: tableWidth, y: tableHeight }" rowKey="id" :pagination="false">
+        <a-table :columns="columns" :dataSource="attendeeListData" :scroll="{ x: true }" rowKey="id" :pagination="false">
           <img
             v-if="avatar && avatar !== ''"
             slot-scope="avatar"

@@ -22,15 +22,7 @@
     </a-row>
     <div style="height: 17px;"></div>
     <!-- 表格数据 -->
-    <a-table
-      class="table-list"
-      :columns="columns"
-      :dataSource="tableData"
-      :scroll="{ x: tableWidth, y: tableHeight }"
-      rowKey="id"
-      :pagination="false"
-      @change="handleTableChange"
-    >
+    <a-table class="table-list" :columns="columns" :dataSource="tableData" :scroll="{ x: true }" rowKey="id" :pagination="false" @change="handleTableChange">
       <div slot="avatar" slot-scope="text" class="avatar-div">
         <img v-if="text.avatar" :src="text.avatar" target="avatar" style="width: 24px; height: 24px; border-radius: 50%; margin: auto;" />
         <img v-else src="~@/assets/default_avatar.jpg" target="avatar" style="width: 24px; height: 24px; border-radius: 50%; margin: auto;" />
@@ -194,7 +186,7 @@ export default {
         {
           title: '邀约码',
           key: 'inviteCode',
-          dataIndex: 'inviteCode',
+          dataIndex: 'inviteCode.code',
           width: 160,
           sorter: true,
         },
@@ -250,7 +242,7 @@ export default {
           key: 'mobile',
           fixed: 'left',
           dataIndex: 'mobile',
-          width: 120,
+          width: 130,
           sorter: true,
         },
         ...fixedColumnsstart,
