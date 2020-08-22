@@ -28,6 +28,10 @@
             <div class="label">职位</div>
             <div>{{ data.job }}</div>
           </div>
+          <div class="flex-box m-t-16">
+            <div class="label">身份证</div>
+            <div>{{ data.idCard }}</div>
+          </div>
 
           <!-- <div class="flex-box m-t-16" v-for="(item, index) in fieldsFilter" :key="index">
             <div class="label">{{ item.field.name }}</div>
@@ -36,7 +40,7 @@
           <div class="flex-box m-t-16" v-for="item in fields" :key="item.id">
             <div class="label">{{ item.name }}</div>
             <div>
-              <span v-if="item.type === 0">{{ data[item.id] }}</span>
+              <span>{{ data[item.id] }}</span>
             </div>
           </div>
           <h3 class="m-t-20">分组信息</h3>
