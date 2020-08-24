@@ -80,7 +80,8 @@
             </div>
             <!-- 人脸识别 -->
             <div class="font-div">
-              <img src="~@/assets/face.png" @click="showFaceModal(2)" />
+              <!-- <img src="~@/assets/face.png" @click="showFaceModal(2)" /> -->
+              <img src="~@/assets/face.png" @click="$refs.cameraModal.open()" />
               <span class="font-desc">人脸识别</span>
             </div>
           </div>
@@ -261,7 +262,7 @@
         :destroyOnClose="true"
       >
         <div class="sign-result">
-          <div id="cam-area" class="cam-area"></div>
+          <div ref="camera" id="cam-area" class="cam-area"></div>
           <br />
           <div style="text-align: center;">
             <img src="~@/assets/carema.png" @click="showCarema" />
@@ -269,12 +270,14 @@
         </div>
       </CustomModal>
     </div>
+    <CameraModal ref="cameraModal" />
   </div>
 </template>
 
 <script>
 import SignModal from '@/components/CustomModal/SignModal'
 import CustomModal from '@/components/CustomModal/CustomModal'
+import CameraModal from '@/components/Activity/CameraModal'
 import WebCamera from 'webcamjs'
 import { mapGetters } from 'vuex'
 import moment from 'moment'
@@ -680,6 +683,7 @@ export default {
     CustomModal,
     WebCamera,
     Qrcode,
+    CameraModal,
   },
   methods: {
     moment,
@@ -1161,8 +1165,9 @@ export default {
         WebCamera.set({
           flip_horiz: true,
         })
-        WebCamera.attach('#cam-area')
-      }, 1000)
+        // WebCamera.attach('#cam-area')
+        WebCamera.attach(this.$refs.camera.$el)
+      }, 3000)
     },
     // 签到统计数据
     async getSignData(sId) {

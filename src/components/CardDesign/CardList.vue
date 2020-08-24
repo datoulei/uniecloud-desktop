@@ -232,7 +232,7 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 0px;
     .card {
       width: 292px;
