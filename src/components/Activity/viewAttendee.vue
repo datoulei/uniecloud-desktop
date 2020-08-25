@@ -252,21 +252,21 @@ export default {
     },
     schedules() {
       try {
-        return this.data.schedules
+        return this.data.schedules || []
       } catch (error) {
         return []
       }
     },
     traffic() {
       try {
-        return this.data.traffic
+        return this.data.traffic || []
       } catch (error) {
         return []
       }
     },
     hotels() {
       try {
-        return this.data.hotels
+        return this.data.hotels || []
       } catch (error) {
         return []
       }

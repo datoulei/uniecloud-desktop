@@ -75,7 +75,7 @@ export default {
       queryList: {}, // 查询条件
       status: this.$route.query.status,
       options: [
-        { value: -1, name: '全部' },
+        { value: '', name: '全部' },
         { value: 0, name: '未签到' },
         { value: 1, name: '已签到' },
       ],

@@ -29,7 +29,7 @@
           </a-dropdown>
         </div>
         <div class="a-card-1-count">
-          <div class="sign-total" @click="HandleToAttendeeList(-1)">
+          <div class="sign-total" @click="HandleToAttendeeList('')">
             <span class="num">{{ signStatistics.total }}</span>
             <span>参会人数</span>
           </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="view-sign-text" v-if="accoutType === 1 || this.UserInfo.enableAttendeeManage === true">
           <img src="~@/assets/sign.png" />
-          <span @click="HandleToAttendeeList(-1)" style="cursor: pointer;">查看签到名单</span>
+          <span @click="HandleToAttendeeList('')" style="cursor: pointer;">查看签到名单</span>
         </div>
       </a-card>
       <a-card class="a-card-2">
@@ -657,7 +657,7 @@ export default {
           sex: attendee.sex,
           createdAt: attendee.createdAt,
           signTime: attendee.signTime,
-          idCard: idCard,
+          idCard: attendee.idCard,
         }
         const json = {}
         attendee.fieldValues.map((_item) => {

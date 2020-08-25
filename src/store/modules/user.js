@@ -11,7 +11,7 @@ const state = {
   windowHeight: 670, // 窗口高
   siteInfo: {}, //签到点信息
 
-  signStatus: -1, // 签到状态（-1,0,1）
+  signStatus: null, // 签到状态（-1,0,1）
 
   siteNames: [] // 签到点名字数组
 };
