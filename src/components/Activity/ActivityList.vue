@@ -59,9 +59,7 @@
         </a-row>
       </a-card>
     </div>
-    <a-locale-provider :locale="zh_CN">
-      <a-pagination v-show="showPagination" v-model="current" :total="total" @change="onChange" :style="{ 'margin-bottom': '24px' }" />
-    </a-locale-provider>
+    <a-pagination v-show="showPagination" v-model="current" :total="total" @change="onChange" :style="{ 'margin-bottom': '24px' }" />
     <CustomModal :visible="isShow" @cancel="HandleCancel" title="选择签到" @ok="HandleOk" width="360px">
       <a-list itemLayout="horizontal" :dataSource="sites">
         <a-list-item slot="renderItem" slot-scope="item" @click="handleClick(item)" class="list-item">
@@ -83,7 +81,6 @@ import CustomModal from '@/components/CustomModal/CustomModal'
 const ipcRenderer = require('electron').ipcRenderer
 import db from '../../db'
 import offlinedb from '../../offlinedb'
-import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN'
 export default {
   name: 'landing-page',
   data() {
@@ -98,7 +95,6 @@ export default {
       isShow: false,
       sites: [], // 签到地点
       siteId: 0,
-      zh_CN,
     }
   },
   created() {

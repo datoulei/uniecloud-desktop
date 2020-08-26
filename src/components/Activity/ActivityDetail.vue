@@ -105,18 +105,16 @@
           >
         </a-table>
         <div class="pagination">
-          <a-locale-provider :locale="zh_CN">
-            <a-pagination
-              @change="handlePageChange"
-              :current="currentPage"
-              :total="total"
-              :showTotal="(total) => `共有 ${total} 条数据`"
-              :pageSizeOptions="['10', '20', '30', '50']"
-              showSizeChanger
-              @showSizeChange="onShowSizeChange"
-              :defaultPageSize="10"
-            />
-          </a-locale-provider>
+          <a-pagination
+            @change="handlePageChange"
+            :current="currentPage"
+            :total="total"
+            :showTotal="(total) => `共有 ${total} 条数据`"
+            :pageSizeOptions="['10', '20', '30', '50']"
+            showSizeChanger
+            @showSizeChange="onShowSizeChange"
+            :defaultPageSize="10"
+          />
         </div>
       </SignModal>
 
@@ -287,7 +285,6 @@ const fs = require('fs')
 import db from '../../db'
 import offlinedb from '../../offlinedb'
 import dayjs from 'dayjs'
-import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN'
 const ipcRenderer = require('electron').ipcRenderer
 import ActivityDetail from '../../../static/js/ActivityDetail.js'
 export default {
@@ -319,7 +316,6 @@ export default {
       deviceName: '', //打印机名字
       cardTemplate: {}, //胸卡模板
       signAttendee: {}, // 签到人员信息
-      zh_CN,
       RFID: '', // RFID码
       attendeeList: [], // 检索签到人员列表
       detectType: 1, // 人脸动作类型： 1：人像采集 2：人脸识别

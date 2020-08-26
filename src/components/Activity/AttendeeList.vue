@@ -35,18 +35,17 @@
         </span>
       </div>
     </a-table>
-    <a-locale-provider :locale="zh_CN">
-      <a-pagination
-        style="margin: 8px 0;"
-        @change="handlePageChange"
-        :current="current"
-        :total="total"
-        :showTotal="(total) => `共有 ${total} 条数据`"
-        :pageSizeOptions="pageSizeOptions"
-        showSizeChanger
-        @showSizeChange="onShowSizeChange"
-      />
-    </a-locale-provider>
+
+    <a-pagination
+      style="margin: 8px 0;"
+      @change="handlePageChange"
+      :current="current"
+      :total="total"
+      :showTotal="(total) => `共有 ${total} 条数据`"
+      :pageSizeOptions="pageSizeOptions"
+      showSizeChanger
+      @showSizeChange="onShowSizeChange"
+    />
   </div>
 </template>
 
@@ -55,7 +54,6 @@ import moment from 'moment'
 import db from '../../db'
 import offlinedb from '../../offlinedb'
 import { mapGetters } from 'vuex'
-import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN'
 export default {
   name: 'sign-list',
   data() {
@@ -69,7 +67,6 @@ export default {
       total: 0,
       pageSize: 10,
       pageSizeOptions: ['10', '20', '30', '50'], // 分页
-      zh_CN,
       sorter: {}, // 排序
       loading: false, // 加载
       queryList: {}, // 查询条件

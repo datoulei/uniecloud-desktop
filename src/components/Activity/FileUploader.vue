@@ -8,12 +8,7 @@
     :data="extraData"
     @change="handleAfterUpload"
   >
-    <img
-      v-if="value"
-      style="width: 64px; height: 64px;"
-      :src="value"
-      alt="file"
-    />
+    <img v-if="value" style="width: 64px; height: 64px;" :src="value" alt="file" />
     <div v-else class="avatar">
       <a-icon style="font-size: 20px;" :type="uploading ? 'loading' : 'plus'" />
       <div class="ant-upload-text">上传</div>
@@ -22,38 +17,38 @@
 </template>
 
 <script>
-import _ from 'lodash';
+import _ from 'lodash'
 export default {
   props: {
     value: {
-      required: true
+      required: true,
     },
     face: {
-      required: false
-    }
+      required: false,
+    },
   },
   computed: {
     action() {
-      return process.env.VUE_APP_API + '/files';
+      return process.env.VUE_APP_API + '/files'
     },
     extraData() {
-      return { face: this.face };
-    }
+      return { face: this.face }
+    },
   },
   data() {
     return {
-      uploading: false
-    };
+      uploading: false,
+    }
   },
   methods: {
     handleAfterUpload(result) {
-      const url = _.get(result, 'file.response');
+      const url = _.get(result, 'file.response')
       if (url) {
-        this.$emit('change', url);
+        this.$emit('change', url)
       }
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style lang="less">

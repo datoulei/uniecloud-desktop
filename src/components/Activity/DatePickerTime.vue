@@ -1,39 +1,34 @@
 <template>
-  <a-locale-provider :locale="zh_CN">
-    <a-date-picker v-model="current" :showTime="{format:'HH:mm'}" format="YYYY-MM-DD HH:mm" />
-  </a-locale-provider>
+  <a-date-picker v-model="current" :showTime="{ format: 'HH:mm' }" format="YYYY-MM-DD HH:mm" />
 </template>
 
 <script>
-import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
-import moment from 'moment';
+import moment from 'moment'
 export default {
   props: {
     value: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   data() {
-    return {
-      zh_CN
-    };
+    return {}
   },
   computed: {
     current: {
       get() {
         if (this.value) {
-          return moment(this.value, 'YYYY-MM-DD HH:mm');
+          return moment(this.value, 'YYYY-MM-DD HH:mm')
         } else {
-          return moment();
+          return moment()
         }
       },
       set(val) {
-        this.$emit('change', val.format('YYYY-MM-DD HH:mm'));
-      }
-    }
-  }
-};
+        this.$emit('change', val.format('YYYY-MM-DD HH:mm'))
+      },
+    },
+  },
+}
 </script>
 
 <style scoped>

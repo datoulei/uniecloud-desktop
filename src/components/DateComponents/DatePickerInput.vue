@@ -1,53 +1,44 @@
 <template>
-  <a-locale-provider :locale="zh_CN">
-    <a-date-picker
-      v-model="current"
-      format="YYYY-MM-DD"
-      :disabledDate="disabledDate"
-    />
-  </a-locale-provider>
+  <a-date-picker v-model="current" format="YYYY-MM-DD" :disabledDate="disabledDate" />
 </template>
 
 <script>
-import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
-import moment from 'moment';
-import dayjs from 'dayjs';
+import moment from 'moment'
+import dayjs from 'dayjs'
 export default {
   props: {
     value: {
       type: String,
-      required: false
+      required: false,
     },
     beginDate: {
       type: String,
-      required: false
+      required: false,
     },
     endDate: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   data() {
-    return {
-      zh_CN
-    };
+    return {}
   },
 
   computed: {
     current: {
       get() {
         if (this.value) {
-          return moment(this.value);
+          return moment(this.value)
         } else if (this.beginDate) {
-          return moment(this.beginDate);
+          return moment(this.beginDate)
         } else {
-          return moment();
+          return moment()
         }
       },
       set(val) {
-        this.$emit('change', val.format('YYYY-MM-DD'));
-      }
-    }
+        this.$emit('change', val.format('YYYY-MM-DD'))
+      },
+    },
   },
   methods: {
     moment,
@@ -55,15 +46,10 @@ export default {
      * 日期选择不可用
      */
     disabledDate(current) {
-      return (
-        current <
-          moment(
-            dayjs(this.beginDate).subtract(1, 'day').format('YYYY-MM-DD')
-          ).endOf('day') || current > moment(this.endDate).endOf('day')
-      );
-    }
-  }
-};
+      return current < moment(dayjs(this.beginDate).subtract(1, 'day').format('YYYY-MM-DD')).endOf('day') || current > moment(this.endDate).endOf('day')
+    },
+  },
+}
 </script>
 
 <style scoped></style>
