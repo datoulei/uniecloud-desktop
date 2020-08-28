@@ -86,7 +86,7 @@ export default {
     // 添加
     toAddCard() {
       this.$router.push({
-        name: 'addCard',
+        name: 'cardDesign-addCard',
         query: {
           activityId: this.activityId,
           cardId: '',
@@ -96,7 +96,7 @@ export default {
     // 编辑
     edit(card) {
       this.$router.push({
-        name: 'addCard',
+        name: 'cardDesign-addCard',
         query: {
           activityId: this.activityId,
           cardId: card.id,

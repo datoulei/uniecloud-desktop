@@ -1,59 +1,38 @@
 <template>
   <div class="custom-menu">
-    <a-menu v-model="current" mode="horizontal" theme="dark">
-      <a-menu-item key="activityList" @click="HandleActivityList"
-        >活动列表</a-menu-item
-      >
-      <a-menu-item
-        key="activity"
-        v-if="siteId > 0"
-        @click="HandleMyActivity"
-        id="myActivity"
-        >我的活动</a-menu-item
-      >
-      <a-menu-item
-        key="design"
-        v-if="siteId > 0 && accoutType === 1"
-        @click="HandleDesign"
-        >内容设计</a-menu-item
-      >
-      <a-menu-item
-        key="hotel"
-        v-if="siteId > 0 && !enabledHotel"
-        @click="HandleHotelDesign"
-        >酒店分房</a-menu-item
-      >
-      <a-menu-item key="setting" v-if="siteId > 0" @click="HandleSetting"
-        >设置</a-menu-item
-      >
+    <a-menu :selectedKeys="current" mode="horizontal" theme="dark">
+      <a-menu-item key="dashboard" @click="HandleActivityList">活动列表</a-menu-item>
+      <a-menu-item key="activityDetail" v-if="siteId > 0" @click="HandleMyActivity" id="myActivity">我的活动</a-menu-item>
+      <a-menu-item key="cardDesign" v-if="siteId > 0 && accoutType === 1" @click="HandleDesign">内容设计</a-menu-item>
+      <a-menu-item key="hotel" v-if="siteId > 0 && !enabledHotel" @click="HandleHotelDesign">酒店分房</a-menu-item>
+      <a-menu-item key="setting" v-if="siteId > 0" @click="HandleSetting">设置</a-menu-item>
     </a-menu>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      current: ['activity']
-    };
-  },
-
   computed: {
     ...mapGetters(['UserInfo']),
     accoutType() {
-      return this.UserInfo.type;
+      return this.UserInfo.type
     },
     siteId() {
-      return this.$store.state.user.siteId;
+      return this.$store.state.user.siteId
     },
     activityId() {
-      return this.$store.state.user.activityId;
+      return this.$store.state.user.activityId
     },
     enabledHotel() {
-      return this.$store.state.user.enabledHotel;
-    }
+      return this.$store.state.user.enabledHotel
+    },
+    current() {
+      const arr = []
+      arr.push(this.$route.name.split('-')[0])
+      return arr
+    },
   },
   methods: {
     HandleDesign() {
@@ -61,32 +40,32 @@ export default {
         this.$router.push({
           name: 'cardDesign',
           params: {
-            activityId: this.activityId
-          }
-        });
+            activityId: this.activityId,
+          },
+        })
       } else {
         // this.$message.error('请选择活动');
       }
     },
     HandleActivityList() {
       this.$router.push({
-        name: 'dashboard'
-      });
+        name: 'dashboard',
+      })
     },
     HandleMyActivity() {
       this.$router.push({
         name: 'activityDetail',
         params: { id: this.activityId },
         query: {
-          addressId: this.siteId
-        }
-      });
+          addressId: this.siteId,
+        },
+      })
     },
     HandleSetting() {
       if (this.activityId > 0) {
         this.$router.push({
-          name: 'setting'
-        });
+          name: 'setting',
+        })
       } else {
         // this.$message.error('请选择活动');
       }
@@ -96,12 +75,12 @@ export default {
         name: 'hotel',
         params: { id: this.activityId },
         query: {
-          addressId: this.siteId
-        }
-      });
-    }
-  }
-};
+          addressId: this.siteId,
+        },
+      })
+    },
+  },
+}
 </script>
 
 <style lang="scss">

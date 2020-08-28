@@ -10,44 +10,40 @@
     <!-- 拓展屏 -->
     <div class="card">
       <div class="cover">
-        <img
-          src="~@/assets/screen.png"
-          @click="HandleDesignScreen"
-          class="cover-img"
-        />
+        <img src="~@/assets/screen.png" @click="HandleDesignScreen" class="cover-img" />
       </div>
       <div class="label">拓展屏设计</div>
     </div>
   </div>
 </template>
 <script>
-const ipcRenderer = require('electron').ipcRenderer;
+const ipcRenderer = require('electron').ipcRenderer
 export default {
   data() {
     return {
-      activityId: this.$route.params.activityId
-    };
+      activityId: this.$route.params.activityId,
+    }
   },
   created() {
-    ipcRenderer.send('close-extra'); // 关闭扩展屏幕
+    ipcRenderer.send('close-extra') // 关闭扩展屏幕
   },
   methods: {
     HandleCardList: function () {
       this.$router.push({
-        name: 'cardList',
-        params: { activityId: this.activityId }
-      });
+        name: 'cardDesign-cardList',
+        params: { activityId: this.activityId },
+      })
     },
     HandleDesignScreen: function () {
       this.$router.push({
-        name: 'addScreen',
+        name: 'cardDesign-addScreen',
         query: {
-          activityId: this.activityId
-        }
-      });
-    }
-  }
-};
+          activityId: this.activityId,
+        },
+      })
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

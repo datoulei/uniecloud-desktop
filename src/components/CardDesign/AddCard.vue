@@ -262,7 +262,7 @@ export default {
     ipcRenderer.on('resize-window', (event, text) => {
       this.HandleSubmit('hidden').then((rst) => {
         this.$router.push({
-          name: 'direction',
+          name: 'cardDesign-direction',
           query: {
             cardId: this.cardId ? this.cardId : rst.id,
             activityId: this.activityId,

@@ -343,7 +343,7 @@ export default {
       }
       if (this.useType !== 2) {
         this.$router.push({
-          name: 'addAttendee',
+          name: 'activityDetail-addAttendee',
           params: { activityId: this.activityId },
           query: { siteId: this.siteId },
         })
@@ -376,7 +376,7 @@ export default {
         return
       }
       this.$router.push({
-        name: 'editAttendee',
+        name: 'activityDetail-editAttendee',
         params: { activityId: this.activityId },
         query: {
           siteId: this.siteId,
@@ -445,7 +445,7 @@ export default {
 
     handleViewAttendeeDetail(record) {
       this.$router.push({
-        name: 'viewAttendee',
+        name: 'activityDetail-viewAttendee',
         params: { activityId: this.activityId, id: record.id },
       })
     },

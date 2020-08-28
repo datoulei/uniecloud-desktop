@@ -1138,7 +1138,7 @@ export default {
       }
 
       this.$router.push({
-        name: 'attendeeList',
+        name: 'activityDetail-attendeeList',
         params: {
           activityId: this.activityId,
           siteId: this.currentSite.id,

@@ -95,6 +95,7 @@ export default {
       isShow: false,
       sites: [], // 签到地点
       siteId: 0,
+      site: null,
     }
   },
   created() {
@@ -246,14 +247,21 @@ export default {
         this.$message.error('请选择签到地点')
         return
       }
+      this.$store.commit('SET_SITE_ID', this.siteId)
+      this.$store.commit('SET_SITE_INFO', this.site)
+      this.$store.commit('SET_SITE_NAMES', [this.site])
       this.$store.commit('SET_ACTIVITY_ID', this.itemData.id)
-      document.getElementById('myActivity').click()
+      this.$router.push({
+        name: 'activityDetail',
+        params: { id: this.itemData.id },
+        query: {
+          addressId: this.siteId,
+        },
+      })
     },
     handleClick(item) {
       this.siteId = item.id
-      this.$store.commit('SET_SITE_ID', item.id)
-      this.$store.commit('SET_SITE_INFO', item)
-      this.$store.commit('SET_SITE_NAMES', [item])
+      this.site = item
     },
   },
 }

@@ -422,7 +422,7 @@ export default {
             })
             this.$message.success('修改成功')
             this.$router.push({
-              name: 'attendeeList',
+              name: 'activityDetail-attendeeList',
               params: {
                 activityId: this.activityId,
                 siteId: this.siteId,

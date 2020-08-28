@@ -26,22 +26,22 @@ const router = new Router({
         },
         {
           path: 'activity/:activityId/site/:siteId/attendeeList',
-          name: 'attendeeList',
+          name: 'activityDetail-attendeeList',
           component: () => import('@/components/Activity/AttendeeList')
         },
         {
           path: 'activity/:activityId/addAttendee',
-          name: 'addAttendee',
+          name: 'activityDetail-addAttendee',
           component: () => import('@/components/Activity/AddAttendee')
         },
         {
           path: 'activity/:activityId/viewAttendee/:id',
-          name: 'viewAttendee',
+          name: 'activityDetail-viewAttendee',
           component: () => import('@/components/Activity/viewAttendee')
         },
         {
           path: 'activity/:activityId/editAttendee',
-          name: 'editAttendee',
+          name: 'activityDetail-editAttendee',
           component: () => import('@/components/Activity/EditAttendee')
         },
         {
@@ -56,27 +56,27 @@ const router = new Router({
         },
         {
           path: 'cardList/:activityId',
-          name: 'cardList',
+          name: 'cardDesign-cardList',
           component: () => import('@/components/CardDesign/CardList')
         },
         {
           path: 'screenList/:activityId',
-          name: 'screenList',
+          name: 'cardDesign-screenList',
           component: () => import('@/components/CardDesign/ScreenList')
         },
         {
           path: 'addCard',
-          name: 'addCard',
+          name: 'cardDesign-addCard',
           component: () => import('@/components/CardDesign/AddCard')
         },
         {
           path: 'addScreen',
-          name: 'addScreen',
+          name: 'cardDesign-addScreen',
           component: () => import('@/components/CardDesign/AddScreen')
         },
         {
           path: 'direction',
-          name: 'direction',
+          name: 'cardDesign-direction',
           component: () => import('@/components/CardDesign/Direction')
         },
         {
@@ -86,12 +86,12 @@ const router = new Router({
         },
         {
           path: 'hotel/:id/room',
-          name: 'room',
+          name: 'hotel-room',
           component: () => import('@/components/Activity/Room')
         },
         {
           path: 'hotel/:id/viewroom',
-          name: 'view-room',
+          name: 'hotel-view-room',
           component: () => import('@/components/Activity/ViewRoom')
         }
       ]

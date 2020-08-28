@@ -7,20 +7,20 @@
 <script>
 export default {
   data() {
-    return {};
+    return {}
   },
   created() {
-    const activityId = this.$route.query.activityId;
-    const cardId = this.$route.query.cardId;
+    const activityId = this.$route.query.activityId
+    const cardId = this.$route.query.cardId
     this.$router.push({
-      name: 'addCard',
+      name: 'cardDesign-addCard',
       query: {
         activityId: activityId,
-        cardId: cardId
-      }
-    });
-  }
-};
+        cardId: cardId,
+      },
+    })
+  },
+}
 </script>
 
 <style>
