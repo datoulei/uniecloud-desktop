@@ -28,3 +28,12 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app');
+
+if (process.argv.includes('extra-window')) {
+  console.log('显示扩展屏')
+  router.push({ name: 'extra' })
+}
+if (process.argv.includes('print-window')) {
+  console.log('显示扩展屏')
+  router.push({ name: 'print' })
+}

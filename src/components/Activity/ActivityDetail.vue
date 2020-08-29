@@ -1527,6 +1527,7 @@ export default {
      * 开启拓展屏
      */
     createExtraWindow() {
+      console.log('打开扩展屏')
       ipcRenderer.send('createExtraScreen')
     },
 

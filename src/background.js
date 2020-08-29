@@ -82,7 +82,7 @@ function createMainWindow() {
     fullscreen: false,
     webPreferences: {
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-      webviewTag: true
+      webviewTag: true,
     }
   });
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -129,13 +129,14 @@ function createExtraWindow() {
     height: 400,
     frame: false,
     //autoHideMenuBar: true,
-    parent: mainWindow, //win是主窗口
+    // parent: mainWindow, //win是主窗口
     useContentSize: true,
     resizable: true, // 是否可以改变窗口大小
     movable: true,
     title: '拓展屏',
     webPreferences: {
-      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+      additionalArguments: ['extra-window'],
     }
   });
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -160,7 +161,8 @@ function createPrintWindow(width, height, data) {
     show: false,
     title: '打印',
     webPreferences: {
-      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+      additionalArguments: ['print-window'],
     }
   });
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -338,6 +340,7 @@ ipcMain.on('logout', async (event) => {
  * 开启拓展屏窗口
  */
 ipcMain.on('createExtraScreen', (event) => {
+  console.log('open extra window')
   if (!extraWindow) {
     createExtraWindow();
     extraWindow.on('closed', () => {
