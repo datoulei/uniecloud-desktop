@@ -17,11 +17,11 @@
               <a-icon type="down" />
             </a>
             <a-menu slot="overlay">
-              <a-menu-item v-for="data in sites" :key="data.id" style="width: 320px;" @click="checkSignAddress(data)">
+              <a-menu-item v-for="data in sites" :key="data.id" style="width: 320px" @click="checkSignAddress(data)">
                 <div>
                   <span class="line">{{ data.name }}</span>
                   <span class="icon">
-                    <a-icon type="check-circle" class="a-list-item-icon" slot="actions" style="margin-rigth: 0px;" />
+                    <a-icon type="check-circle" class="a-list-item-icon" slot="actions" style="margin-rigth: 0px" />
                   </span>
                 </div>
               </a-menu-item>
@@ -33,12 +33,12 @@
             <span class="num">{{ signStatistics.total }}</span>
             <span>参会人数</span>
           </div>
-          <a-divider type="vertical" style="height: 24px;" />
+          <a-divider type="vertical" style="height: 24px" />
           <div class="sign-people" @click="HandleToAttendeeList(1)">
             <span class="num">{{ signStatistics.signCount }}</span>
             <span>已签到</span>
           </div>
-          <a-divider type="vertical" style="height: 24px;" />
+          <a-divider type="vertical" style="height: 24px" />
           <div class="sign-percent">
             <span class="num">{{ signStatistics.percent }}%</span>
             <span>签到率</span>
@@ -46,7 +46,7 @@
         </div>
         <div class="view-sign-text" v-if="accoutType === 1 || this.UserInfo.enableAttendeeManage === true">
           <img src="~@/assets/sign.png" />
-          <span @click="HandleToAttendeeList('')" style="cursor: pointer;">查看签到名单</span>
+          <span @click="HandleToAttendeeList('')" style="cursor: pointer">查看签到名单</span>
         </div>
       </a-card>
       <a-card class="a-card-2">
@@ -79,11 +79,11 @@
               <span>扫描二维码</span>
             </div>
             <!-- 人脸识别 -->
-            <div class="font-div">
-              <!-- <img src="~@/assets/face.png" @click="showFaceModal(2)" /> -->
+            <!-- <div class="font-div">
+              <img src="~@/assets/face.png" @click="showFaceModal(2)" />
               <img src="~@/assets/face.png" @click="$refs.cameraModal.open()" />
               <span class="font-desc">人脸识别</span>
-            </div>
+            </div> -->
           </div>
         </div>
       </a-card>
@@ -94,11 +94,11 @@
             v-if="avatar && avatar !== ''"
             slot-scope="avatar"
             slot="avatar"
-            style="width: 24px; height: 24px; border-radius: 50%; margin: auto;"
+            style="width: 24px; height: 24px; border-radius: 50%; margin: auto"
             :src="avatar"
             target="avatar"
           />
-          <img v-else slot="avatar" style="width: 24px; height: 24px; border-radius: 50%; margin: auto;" src="~@/assets/default_avatar.jpg" target="avatar" />
+          <img v-else slot="avatar" style="width: 24px; height: 24px; border-radius: 50%; margin: auto" src="~@/assets/default_avatar.jpg" target="avatar" />
 
           <a-button type="primary" slot-scope="attendees" slot="action" :style="{ 'margin-left': '16px' }" @click="HandleOnSign(attendees.mobile)"
             >签到</a-button
@@ -138,9 +138,9 @@
                   <img
                     v-if="signAttendee.avatar && signAttendee.avatar !== ''"
                     :src="signAttendee.avatar"
-                    style="width: 40px; height: 40px; border-radius: 20px;"
+                    style="width: 40px; height: 40px; border-radius: 20px"
                   />
-                  <img v-else src="~@/assets/default_avatar.jpg" style="width: 40px; height: 40px; border-radius: 20px;" />
+                  <img v-else src="~@/assets/default_avatar.jpg" style="width: 40px; height: 40px; border-radius: 20px" />
                 </div>
                 <div class="sign-result-header-userinfo-content">
                   <span class="sign-result-header-userinfo-content-username">{{ signAttendee.name }}</span>
@@ -148,10 +148,10 @@
                   <span class="sign-result-header-userinfo-content-mobile">{{ hiddenMobile(signAttendee.mobile) }}</span>
                 </div>
               </div>
-              <div style="display: none;">
+              <div style="display: none">
                 <Qrcode ref="qrcode" :options="{ width: 256, margin: 0 }" :value="qrcode" />
               </div>
-              <a-divider type="vertical" style="width: 1px; height: 24px; background: rgba(238, 238, 238, 1);" />
+              <a-divider type="vertical" style="width: 1px; height: 24px; background: rgba(238, 238, 238, 1)" />
               <div class="sign-result-header-content">
                 {{
                   signStatus > 0
@@ -180,15 +180,13 @@
             </div>
 
             <!-- 横线 -->
-            <a-divider style="width: 100%;" v-if="signStatus === 1" />
+            <a-divider style="width: 100%" v-if="signStatus === 1" />
 
             <!-- 签到记录 -->
             <div class="sign-record" v-if="signStatus === 1">
               <div class="sign-record-title">
                 <div>签到记录</div>
-                <div class="record-opt" @click="handleRecordActions" id="record-actions">
-                  展开
-                </div>
+                <div class="record-opt" @click="handleRecordActions" id="record-actions">展开</div>
               </div>
               <div>
                 <div v-for="record in records" :key="record.id">
@@ -203,7 +201,7 @@
               </div>
             </div>
 
-            <a-divider style="width: 100%;" v-if="[0, 1].includes(signStatus)" />
+            <a-divider style="width: 100%" v-if="[0, 1].includes(signStatus)" />
             <div v-show="signStatus <= 1" class="sign-input-wrap">
               <span class="sign-remark-label">签到备注：</span>
               <div><a-input id="remark" :style="{ height: '28px' }" /></div>
@@ -215,7 +213,7 @@
               </div>
               <div class="search">
                 <a-input-search ref="rfid" placeholder="输入胸卡电子码手动绑定" v-model="RFID" @search="bindRFID">
-                  <a-button slot="enterButton" style="border-color: red; color: red;">绑定RFID卡</a-button>
+                  <a-button slot="enterButton" style="border-color: red; color: red">绑定RFID卡</a-button>
                 </a-input-search>
               </div>
             </div>
@@ -262,7 +260,7 @@
         <div class="sign-result">
           <div ref="camera" id="cam-area" class="cam-area"></div>
           <br />
-          <div style="text-align: center;">
+          <div style="text-align: center">
             <img src="~@/assets/carema.png" @click="showCarema" />
           </div>
         </div>
