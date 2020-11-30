@@ -8,6 +8,7 @@ module.exports = {
         appId: 'com.uniecloud.desktop',
         productName: 'uniecloud-desktop',
         copyright: 'Copyright©unicloud',
+        asar: false,
         directories: {
           output: './dist_electron', // 输出文件路径
         },
@@ -24,7 +25,10 @@ module.exports = {
             },
           ],
         },
-        publish: ['github'],
+        publish: {
+          provider: 'github',
+          token: 'a70174c43c2f4ade9c570f054d4912a37b0895b1',
+        },
       },
     },
   },
