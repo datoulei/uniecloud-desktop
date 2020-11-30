@@ -218,7 +218,7 @@ export default {
           key: "ticket",
           dataIndex: "ticket",
           width: 200,
-          sorter: true,
+          sorter: false,
         },
         {
           title: "报名时间",
@@ -233,7 +233,7 @@ export default {
           key: "groupName",
           dataIndex: "group",
           width: 160,
-          sorter: true,
+          sorter: false,
         },
         {
           title: "邀约码",
