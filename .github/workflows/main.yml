@@ -35,24 +35,13 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       # step3: npm install
-      - name: Get yarn cache dir
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Yarn cache
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-node${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-node${{ matrix.node }}-
-
-      - name: yarn install
-        run: yarn install
+      - name: npm install
+        run: |
+          npm install
 
       # step4: build app for mac/win
       - name: Build/release Electron app
         run: |
-          yarn run electron:build-win
+          npm run electron:build-win
         env:
-          GH_TOKEN: ${{ matrix.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
