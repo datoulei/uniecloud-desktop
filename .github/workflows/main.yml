@@ -28,13 +28,13 @@ jobs:
     steps:
       # step1: check out repository
       - name: Check out git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       # step2: install node env
       - name: Install Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2-beta
 
-      # step3: install
+      # step3: npm install
       - name: Get yarn cache dir
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -52,4 +52,7 @@ jobs:
 
       # step4: build app for mac/win
       - name: Build/release Electron app
-        run: yarn electron:build -p always --windows
+        run: |
+          yarn run electron:build-win
+        env:
+          GH_TOKEN: ${{ matrix.GITHUB_TOKEN }}
