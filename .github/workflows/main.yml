@@ -22,7 +22,7 @@ jobs:
     # create a build matrix for jobs
     strategy:
       matrix:
-        os: [windows-2019]
+        os: [windows-latest]
 
     # create steps
     steps:
@@ -40,43 +40,13 @@ jobs:
           npm install
 
       # step4: build app for mac/win
-      - name: build windows app
-        if: matrix.os == 'windows-2019'
-        run: |
-          npm run electron:build-win
-        env:
-          GH_TOKEN: a70174c43c2f4ade9c570f054d4912a37b0895b1
-
-      - name: build mac app
-        if: matrix.os == 'macos-10.15'
-        run: |
-          npm run electron:build
-        env:
-          GH_TOKEN: a70174c43c2f4ade9c570f054d4912a37b0895b1
-
-      # step5: cleanup artifacts in dist_electron
-      - name: cleanup artifacts for windows
-        if: matrix.os == 'windows-2019'
-        run: |
-          npx rimraf "dist_electron/!(*.exe)"
-
-      - name: cleanup artifacts for macos
-        if: matrix.os == 'macos-10.15'
-        run: |
-          npx rimraf "dist_electron/!(*.dmg)"
-
-      # step6: upload artifacts
-      - name: upload artifacts
-        uses: actions/upload-artifact@v2
+      - name: Build/release Electron app
+        ruses: samuelmeuli/action-electron-builder@v1
         with:
-          name: ${{ matrix.os }}
-          path: dist_electron
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
+          github_token: ${{ secrets.github_token }}
 
-      # step7: create release
-      - name: release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: 'dist_electron/**'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # If the commit is tagged with a version (e.g. "v1.0.0"),
+          # release the app after building
+          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
