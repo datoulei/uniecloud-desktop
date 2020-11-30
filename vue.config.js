@@ -25,10 +25,6 @@ module.exports = {
             },
           ],
         },
-        publish: {
-          provider: 'github',
-          token: 'c3d14dcac556de3702654c44e8fa96b2cf5e6f48',
-        },
       },
     },
   },
